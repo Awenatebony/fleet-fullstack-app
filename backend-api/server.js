@@ -25,6 +25,11 @@ app.use(express.static('public'));
 app.use('/api/trucks', truckRoutes);         // CRUD for trucks
 app.use('/api/auth', authRoutes);            // Login & registration
 
+app.get("/", (req, res) => {
+  res.send("API is running ✅");
+});
+
+
 // === 404 Handler ===
 app.use((req, res, next) => {
   res.status(404).json({ message: 'Route not found' });
